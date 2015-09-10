@@ -39,7 +39,6 @@ class ApiControllerGeneratorCommand extends GeneratorCommand {
     {
         return [
             'NAME' => $this->argument('name'),
-            'NAMESPACE' => $this->argument('ns'),
             'VERSION' => $this->argument('version')
         ];
     }
@@ -65,8 +64,7 @@ class ApiControllerGeneratorCommand extends GeneratorCommand {
     {
         return [
             ['name', InputArgument::REQUIRED, 'Api Name'],
-            ['version', InputArgument::REQUIRED, 'Api Version'],
-            ['ns', InputArgument::OPTIONAL, 'Controller Namespace']
+            ['version', InputArgument::REQUIRED, 'Api Version']
         ];
     }
 
