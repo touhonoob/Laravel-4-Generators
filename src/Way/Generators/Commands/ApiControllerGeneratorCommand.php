@@ -27,7 +27,7 @@ class ApiControllerGeneratorCommand extends GeneratorCommand {
      */
     protected function getTemplatePath()
     {
-        return $this->getPathByOptionOrConfig('templatePath', 'controller_template_path');
+        return $this->getPathByOptionOrConfig('templatePath', 'api_controller_template_path');
     }
 
     /**
@@ -53,7 +53,7 @@ class ApiControllerGeneratorCommand extends GeneratorCommand {
     {
         $path = $this->getPathByOptionOrConfig('path', 'controller_target_path');
 
-        return $path. '/Api/' . $this->argument('name') . '.php';
+        return $path. '/Api/' . $this->argument('name') . 'Controller.php';
     }
 
     /**
