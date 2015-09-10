@@ -14,6 +14,8 @@ return [
 
     'controller_template_path' => 'vendor/way/generators/src/Way/Generators/templates/controller.txt',
 
+    'api_controller_template_path' => base_path('vendor/way/generators/src/Way/Generators/templates/api_controller.txt'),
+
     'scaffold_controller_template_path' => 'vendor/way/generators/src/Way/Generators/templates/scaffolding/controller.txt',
 
     'migration_template_path' => 'vendor/way/generators/src/Way/Generators/templates/migration.txt',
