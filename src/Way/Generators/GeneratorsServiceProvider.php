@@ -1,6 +1,7 @@
 <?php namespace Way\Generators;
 
 use Illuminate\Support\ServiceProvider;
+use Way\Generators\Commands\ApiControllerGeneratorCommand;
 use Way\Generators\Commands\ControllerGeneratorCommand;
 use Way\Generators\Commands\ModelGeneratorCommand;
 use Way\Generators\Commands\ResourceGeneratorCommand;
@@ -39,6 +40,7 @@ class GeneratorsServiceProvider extends ServiceProvider {
             'Model',
             'View',
             'Controller',
+            'Api',
             'Migration',
             'Seeder',
             'Pivot',
@@ -93,6 +95,21 @@ class GeneratorsServiceProvider extends ServiceProvider {
         });
 
         $this->commands('generate.controller');
+    }
+
+    /**
+     * Register the controller generator
+     */
+    protected function registerApi()
+    {
+        $this->app['generate.api'] = $this->app->share(function($app)
+        {
+            $generator = $this->app->make('Way\Generators\Generator');
+
+            return new ApiControllerGeneratorCommand($generator);
+        });
+
+        $this->commands('generate.api');
     }
 
     /**
