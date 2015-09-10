@@ -1,0 +1,31 @@
+<?php namespace $NAMESPACE$;
+
+/**
+ * @apiDefine $NAME$
+ * @apiVersion $VERSION$
+ *
+ */
+class $NAME$Controller extends \RESTController {
+
+	/**
+	 * @api {post} /api/$NAME$
+	 * @apiGroup $NAME$
+	 * @apiVersion $VERSION$
+	 *
+	 * @apiParam
+	 *
+	 * @apiSuccess {String} status 'success'
+	 *
+	 * @apiError {String} status 'error'
+	 *
+	 */
+	public function store()
+	{
+		try {
+		    return $this->responseSuccess();
+		} catch (\RuntimeException $ex) {
+		    return $this->handleException($ex);
+		}
+	}
+
+}
