@@ -64,7 +64,9 @@ class ApiControllerGeneratorCommand extends GeneratorCommand {
     protected function getArguments()
     {
         return [
-            ['controllerName', InputArgument::REQUIRED, 'The name of the desired controller.']
+            ['name', InputArgument::REQUIRED, 'Api Name'],
+            ['ns', InputArgument::REQUIRED, 'Controller Namespace'],
+            ['version', InputArgument::REQUIRED, 'Api Version']
         ];
     }
 
