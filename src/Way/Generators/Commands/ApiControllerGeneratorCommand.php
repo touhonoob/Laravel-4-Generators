@@ -53,7 +53,7 @@ class ApiControllerGeneratorCommand extends GeneratorCommand {
     {
         $path = $this->getPathByOptionOrConfig('path', 'controller_target_path');
 
-        return $path. '/' . $this->argument('controllerName') . '.php';
+        return $path. '/Api/' . $this->argument('name') . '.php';
     }
 
     /**
@@ -65,8 +65,8 @@ class ApiControllerGeneratorCommand extends GeneratorCommand {
     {
         return [
             ['name', InputArgument::REQUIRED, 'Api Name'],
-            ['ns', InputArgument::REQUIRED, 'Controller Namespace'],
-            ['version', InputArgument::REQUIRED, 'Api Version']
+            ['version', InputArgument::REQUIRED, 'Api Version'],
+            ['ns', InputArgument::OPTIONAL, 'Controller Namespace']
         ];
     }
 
