@@ -39,7 +39,9 @@ class ModelGeneratorCommand extends GeneratorCommand {
     protected function getTemplateData()
     {
         return [
-            'NAME' => ucwords($this->argument('modelName'))
+            'NAME' => ucwords($this->argument('modelName')),
+            'TABLE' => $this->argument('tableName'),
+            'NAMESPACE' => $this->argument('namespace')
         ];
     }
 
@@ -61,7 +63,9 @@ class ModelGeneratorCommand extends GeneratorCommand {
     protected function getArguments()
     {
         return [
-            ['modelName', InputArgument::REQUIRED, 'The name of the desired Eloquent model']
+            ['modelName', InputArgument::REQUIRED, 'The name of the desired Eloquent model'],
+            ['tableName', InputArgument::REQUIRED, 'Name of table'],
+            ['namespace', InputArgument::REQUIRED, 'namespace']
         ];
     }
 

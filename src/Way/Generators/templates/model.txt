@@ -1,5 +1,9 @@
 <?php
 
-class $NAME$ extends \Eloquent {
+namespace $NAMESPACE$;
+
+class $NAME$ extends \Illuminate\Database\Eloquent\Model
+{
+    protected $table = '$TABLE$';
 	protected $fillable = [];
 }
