@@ -2,6 +2,7 @@
 
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
+use Schema;
 
 class ModelGeneratorCommand extends GeneratorCommand {
 
@@ -41,8 +42,18 @@ class ModelGeneratorCommand extends GeneratorCommand {
         return [
             'NAME' => ucwords($this->argument('modelName')),
             'TABLE' => $this->argument('tableName'),
-            'NAMESPACE' => $this->argument('namespace')
+            'NAMESPACE' => $this->argument('namespace'),
+            'FILLABLE' => $this->getFillable()
         ];
+    }
+
+    protected function getFillable()
+    {
+        $columns = Schema::getColumnListing($this->argument('tableName'));
+        $fillable = implode(',', array_map(function($column){
+            return "'$column'";
+        }, $columns));
+        return $fillable;
     }
 
     /**
